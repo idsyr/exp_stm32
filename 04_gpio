@@ -1,0 +1,31 @@
+____________________________________________________________________________
+digital out:
+LL_GPIO_SetSpinMode(GPIOx, LL_GPIO_PIN_x, LL_GPIO_MODE_OUTPUT)->MODER
+
+LL_GPIO_SetPinOutputType(GPIOx, LL_GPIO_PIN_x, mode)->OTYPER
+LL_GPIO_OUTPUT_PUSHPULL/OPENDRAIN
+
+LL_GPIO_WriteOutputPort(GPIOx, value)->ODR//clean other
+LL_GPIO_SetOutputPort(GPIOx, bits)->BSSR
+LL_GPIO_ResetOutputPin(GPIOx, bits)->BRR
+____________________________________________________________________________
+digital in:
+LL_GPIO_SetPinMode(GPIOx, LL_GPIO_PIN_x, LL_GPIO_MODE_INPUT)->MODER
+
+LL_GPIO_SetPinPull(GPIOx, LL_GPIO_PIN_x, mode)_>PUPDR
+LL_GPIO_PULL_UP
+LL_GPIO_PULL_DOWN
+LL_GPIO_PULL_NO
+
+LL_GPIO_ReadInputPort(GPIOx)->IDR
+LL_GPIO_IsInputPinSet(GPIOx, bits)->IDR
+____________________________________________________________________________
+alt mode:
+LL_GPIO_SetPinMode(GPIOx, LL_GPIO_PIN_x, LL_GPIOMODE_ALTERNATE)
+LL_GPIO_SetPinPull(GPIOx, LL_GPIO_PIN_x, mode) //up
+LL_GPIO_SetPinOutputType(GPIOx, LL_GPIO_PIN_x, mode) //up
+LL_GPIO_SetAFPin_0_7(GPIOx, LL_GPIO_PIN_x, mode<-)
+mode<- LL_GPIO_AF(1..7) (in table)
+____________________________________________________________________________
+analog:
+LL_GPIO_SetPinMode(GPIOx, LL_GPIO_PIN_x, LL_GPIO_MODE_ANALOG)
