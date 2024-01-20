@@ -1,0 +1,10 @@
+if(LL_RCC_IsActiveFlag_SFTRST()){ //software reset
+LL_GPIO_SetOUtputPin(GPIOC, LL_GPIO_PIN_9);
+LL_RCc_ClearResetFlags();}
+
+if(LL_RCC_IsActiveFlag_PINRST()) //reset button
+LL_GPIO_TogglePin(GPIOC, LL_GPIO_PIN_8);
+
+while(1){
+delay();
+NVIC_SystemReset();} 
