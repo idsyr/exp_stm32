@@ -1,0 +1,14 @@
+void NVIC_EnableRQ(IRQn_Type IRQn)
+void NVIC_DisableRQ(IRQn_Type IRQn)
+void NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority)
+
+void callback(void *data){
+(void) data;
+LL_GPIO_TogglePin(GPIO?, LL_GPIO_PIN_?);}
+
+#pragma GCC diagnostic ignored "-Wunused-parametr"
+void service_call(void (*func)(void*), void *args){
+asm volatile("svc 0");}
+#pragma GCC diagnostic pop
+
+//service_call(callback, NULL);
