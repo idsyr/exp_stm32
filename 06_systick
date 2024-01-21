@@ -1,0 +1,7 @@
+#include "stm32f1xx_ll_utils.h"
+#include "stm32f1xx_ll_cortex.h"
+
+LL_InitTick(48000000, 1000);
+LL_SYSTICK_EnableIt();
+NVIC_SetPriority(SysTick_TRQn, 0);
+void SysTick_Handler(void){}
