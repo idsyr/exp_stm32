@@ -1,0 +1,32 @@
+TIM6 7 base
+TIM2 3 14 15 16 17 gpurp
+TIM1 exten
+
+ARR reg
+shd reg
+up-counting:
+down-counting
+double
+
+#include "stm32f1xx_ll_tim.h"
+LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM2);//clock
+LL_TIM_SetPrescaler(TIM?, 47999) // mod colock
+LL_TIM_SetAutoReload(999) (ARR) // reload val
+LL_TIM_setCounterMode(TIM?, LL_TIM_COUNTER_UP) //mode
+LL_TIM_EnableIt_UPDATE(TIM?) //inerrupt
+LL_TIM_EnableCounter(TIM2);
+NVIC_EnableIRQ(TIM2_IRQn);
+NVIC_setPriority(TIM2_IRQn, 0);
+void TIM?_IRQHandler(void){ //inerrupt handler
+LL_TIM_ClearFLag_UPDATE();}
+
+input capture mode
+LL_TIM_IC_SetFilter(TIM2, LL_TIM_CHANNEL_CH1, LL_TIM_IC_FILTER_FDIV16_N5); // 5 check 16
+LL_TIM_IC_SetPolarity(TIM2, LL_TIM_CHANNEL_CH1, LL_TIM_IC_POLARITY_FALLING); //-front
+LL_TIM_SetActiveInput(TIM2, LL_TIM_CHANNEL_CH1, LL_TIM_ACTIVEINPUT_RIRECTTI); //direct TI A5
+LL_TIM_IC_SetPrescaler(TIM2, LL_TIM_CHANNEL_CH1, LL_TIM_ICPSC_DIV1);
+LL_TIM_CC_EnableChannel(TIM2, LL_TIM_CHANNEL_CH1);
+LL_TIM_GenerateEvent_UPDATE(TIM2); //change def prescaler on start not on reload
+LL_TIM_EnableIT_CC1(TIM?) //inerrupt no update
+NVIC_EnableIRQ(TIM2_IRQn);
+LL_TIM_ClearFlag_CC1(TIM2);
