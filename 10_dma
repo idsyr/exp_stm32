@@ -1,0 +1,15 @@
+LL_AHB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_DMA1); //703 ahb apb check
+LL_DMA_SetMemoryAddress //from
+LL_DMA_SetPeriphAddress //to
+LL_DMA_SetDataTransferDirection
+*SetDataLength
+SetMemoryMode //incr
+_SetPeriphincMode //incr
+_SetPeriphSize
+SetMemorySize //per one
+SetMode //ring/dir
+EnableChannel //enable module
+
+EnableIT_TC
+isActiveFlag
+ClearFlag

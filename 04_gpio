@@ -1,6 +1,6 @@
 ____________________________________________________________________________
 digital out:
-LL_GPIO_SetSpinMode(GPIOx, LL_GPIO_PIN_x, LL_GPIO_MODE_OUTPUT)->MODER
+LL_GPIO_SetPinMode(GPIOx, LL_GPIO_PIN_x, LL_GPIO_MODE_OUTPUT)->MODER
 
 LL_GPIO_SetPinOutputType(GPIOx, LL_GPIO_PIN_x, mode)->OTYPER
 LL_GPIO_OUTPUT_PUSHPULL/OPENDRAIN
