@@ -1,0 +1,2 @@
+#define STM32f103xB
+-> C8 R8 T8 V8 CB RB TB VB

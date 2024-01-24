@@ -6,7 +6,7 @@ LL_EXTI_EnsbleIt_0_31(LL_EXTI_LINE_?)
 LL_EXTI_EnableRisingTrig_0_31(LL_EXTI_LINE_?)
 
 nvic conf:
-NVIC_EnableIRQ(EXTI0_1_TRQn);
+NVIC_EnableIRQ(EXTI0_1_IRQn);
 NVIC_SetPriority(EXTI0_1_IRQn, 0) //2_3 and 4_15
 void EXTI0_1_IRQHandler(void){}
 

@@ -24,7 +24,7 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f1xx.h"
+#include "/home/ids/pro/stm/core/stm32f1xx.h" //makefile includes problem
 
 /** @addtogroup STM32F1xx_LL_Driver
   * @{
