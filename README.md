@@ -1,2 +1,2 @@
-_>make clean is danger
-_>include directories dont work
+->make clean is no more danger /n
+->include directories work /n

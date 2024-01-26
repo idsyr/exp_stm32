@@ -38,9 +38,10 @@ RM = rm -f
 OPENOCD = openocd
 
 MCUFLAGS = -mcpu=cortex-m3 -mlittle-endian -mfloat-abi=soft -mthumb -mno-unaligned-access
-DEBUG_OPTIMIZE_FLAGS = -O0 -ggdb -gdbwarf-2
+DEBUG_OPTIMIZE_FLAGS = -O0 -ggdb -gdwarf-2
 CFLAGS = -Wall  -Wextra --pedantic
 CFLAGS_EXTRA = -nostartfiles -nodefaultlibs -nostdlib -fdata-sections -ffunction-sections
+#init-array in .ld
 CFLAGS += $(DEFINES) $(MCUFLAGS) $(DEBUG_OPTIMIZE_FLAGS) $(CFLAGS_EXTRA) $(INCLUDES)
 LDFLAGS = -static $(MCUFLAGS) -Wl,--start-group -lgcc -lc -lg -Wl,--end-group -Wl,--gc-sections -T core/stm32f103xb_flash.ld
 
@@ -51,7 +52,7 @@ dirs: $(OUTPATH)
 $(OUTPATH):
 	mkdir -p $(OUTPATH)
 clean:
-	$(RM) $(OBJS) $(PROJECT).bin $(PROJECT).asm
+#$(RM) $(OBJS) $(PROJECT).bin $(PROJECT).asm
 	rm -rf $(OUTPATH)
 flash: $(PROJECT).bin
 	st-flash write $(PROJECT).bin 0x8000000
@@ -71,7 +72,7 @@ gdb-st-uril: $(PROJECT).elf
 
 $(PROJECT).elf: $(OBJS)
 %.elf:
-	$(LD) $(OBJS) $(LDFLAGS) -o $@
+	$(LD) $(OBJS) $(LDFLAGS) $(INCLUDES) -o $@
 	$(SIZE) -A $@
 %.bin: %.elf
 	$(OBJCOPY) -O binary $< $@

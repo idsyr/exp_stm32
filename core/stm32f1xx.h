@@ -107,13 +107,14 @@
 /** @addtogroup Device_Included
   * @{
   */
-
 	// _______________
 #define STM32F103xB
 #include <stdint.h>
 	
 	
 	// ---------------
+
+
 #if defined(STM32F100xB)
   #include "stm32f100xb.h"
 #elif defined(STM32F100xE)
